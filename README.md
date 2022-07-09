@@ -1,6 +1,6 @@
 
 
-We have a total of eight instances. The folders in each instance are the same four folders of T, C, K, and D, and the format of the instance size is "Class-Number of Courses-Number of Teachers-Number of Weeks".
+We have a total of eight instances. The folders in each instance are the same four folders of T, C, K, and D, and the format of the instance size is "the number of classes - the number of courses- the number of teachers - the number of weeks".
 The scale of each instance is shown in the following table
 
 | instance | scale |
