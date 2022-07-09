@@ -1,8 +1,9 @@
 
 
-一共有八个算例，每个算例中的文件夹都是相同的T、C、K三个文件夹，算例规模的格式为"班级-课程数-老师数-周数"，
-各算例的规模如下表
-|  算例   | 规格  |
+We have a total of eight instances. The folders in each instance are the same four folders of T, C, K, and D, and the format of the instance size is "Class-Number of Courses-Number of Teachers-Number of Weeks".
+The scale of each instance is shown in the following table
+
+| instance | scale |
 |  ----  | ----  |
 | Instance1  | 4-5-5-18 |
 | Instance2  | 3-5-5-18 |
@@ -14,41 +15,43 @@
 | Instance8  | 8-30-28-20 |
 
 
-# 数据说明
+# Data description
 
-每个算例的数据分为T，C，K三个文件夹.
+The data of each instance is divided into four folders: T, C, K, and D.
 
-## 数据的简化处理说明
+## Simplified description of the processing of the data
 
-1. 将所有老师编号，编号可见K表-K0.xlsx；
-2. 将所有课程编号，编号可见C表-C0.xlsx；
-3. 将所有班级编号，编号可见T表-T0.xlsx；
-4. 对时间段进行简化，分为一天5个时间段。假设一周上课5天，共25个时间段。假设一学期18星期，算例8为20星期。
-5. 课时目前未简化为节次，因为晚课一次3节，需要3个学时；白天的课程一次2节，记2学时。
-6. 暂不考虑一周内完成的专业实验，视作特殊课程处理。
+1. Number all teachers, the number can be seen in table K-K0.xlsx;
+2. All course numbers, numbered can be seen in Form C-C0.xlsx;
+3. All class numbers, the number can be seen in T table -T0.xlsx;
+4. The number of classrooms of each type, see Table D-D.xlsx;
+5. Simplify the time period and divide it into 5 time periods a day. Suppose you attend classes 5 days a week for a total of 25 time periods. Suppose a semester of 18 weeks, and study 8 is 20 weeks.
+6. Class hours are not currently simplified to sections, because 3 lessons at a time in the evening class require 3 credit hours; During the day, 2 lessons are taught at a time, and 2 hours are recorded.
+7. Professional experiments completed within one week are not considered and treated as special courses.
 
-## 表格内容说明
+## Description of the contents of the table
 
-1. T表：
+1. Table D：
 
-   1. T0表：班级编号表格。记录了班级及其对应编号。
+   1. Table T0：Class Number Table. Classes and their corresponding numbers are recorded.
 
-   2. T1-T10：各个班级的主修课表格。即该班级在该时间段无法排课。其中T2-5相同，T6-10相同，此处不重复文件。表格中第一行代表周次，第一列代表时间段，中间有数字的位置代表有课，每个数字的课程在表格下方可查。
-2. C表：C0表：课程信息表格。记录了该课程的编号、名字、课堂对应班级、任课教师编号、课时数量、软约束编号。其中软约束编号见附录。
-3. K表：K0表：教师信息表格。记录了教师及其对应编号、每个教师有事的时间段。其中软约束2与该表格合并。时间部分，每列为一周中的一个时间段，每行为一个教师的信息，对应交叉处为有事的周次。
+   2. T1-T10：Majors table for each class. That is, the class cannot schedule classes during that time period. where T2-5 is the same and T6-10 is the same, there are no duplicate files here. The first row in the table represents the number of weeks, the first column represents the time period, the position of the number in the middle represents the lesson, and the course of each number can be found below the table。
+2. Table C: Table C0: Course Information Form. The number of the course, the name, the corresponding class of the class, the number of the teacher, the number of class hours, and the number of soft constraints are recorded. The soft constraint numbers are shown in the appendix.
+3. Table K: Form K0: Teacher Information Form. The teachers and their corresponding numbers are recorded, and the time period when each teacher has an affair. where soft constraint 2 is merged with this table. The time portion, each column is a time period of the week, each behavior is a teacher's information, corresponding to the intersection of the weeks of things.
+4. Table D: The number of classrooms of each type is recorded
 
-## 附录：C表软约束对应情况
+## Appendix: Table C Soft Constraint Correspondence
 
-C表的软约束顺序按如下方式编码：
+The soft constraint order of table C is encoded as follows:
 
-1. 教师上课时间尽量避开上午1、2节和下午7、8节：多数教师在该时间段有特殊事务需处理 
-2. 教师在某些周次的某些时间有其他安排，无法排课：部分教师有会议安排，或需要出差等 **（合并至K表）**
-3. 同一教师负责的多门课程或多个班级的授课安排在相邻两个时间段内进行：例如一位教师同 时负责讲授计算机网络技术和数据库两门课程，那么他会偏好于将两门课程都安排在同一天 的上午或者下午讲授完**（C表例：编号15和编号24的课要一起上：3:24  3:15）**
-4. 部分课程安排在一定周次内完成全部课时：例如将课程数学建模安排在第一周至第九周完成全部课时**（C表例：前半学期排完： 4:1,9）**
-5. 某门课程安排在特定课程结束之后进行或同期结束：例如将运筹学(二)安排在运筹(一)结束之 后进行，将计量经济学与财务管理安排在同一周次结束
-6. 部分课程在特定时间内进行连排，且至多连排四节：例如matlab物流管理实验课要求连排 四节进行讲授
-7. 较难的课程尽量分开安排：例如微积分与C++尽量不排在同一天，分开安排缓解学生学业压 力
-8. 不同课程在一周内具有不同的课时数量上限：例如运筹学一周至多排四节 **（C表例：一周两次课：一周两次课：8:2）**
-9. 一门课程不要连续多个时间段或连续多天进行：例如尽量将运筹学隔天安排，而非一周四个 课时安排在相邻时间段或者相邻两天。
-10. 一周有若干课时要安排在晚上（连续三个课时）**（C表例：一周一次晚课：10:1）**
-11. 教师希望在某个时间段上课**（C表例：周三晚9-12节：11:15）**
+1. Teachers try to avoid 1 and 2 a.m. and 7 or 8 p.m. class hours: Most teachers have special matters to deal with during this time 
+2. Teachers have other schedules at certain times of the week and cannot schedule classes: some teachers have meeting schedules, or need to travel, etc. **(merged into Form K)**
+3. Classes or classes taught by the same teacher are scheduled to take place in two adjacent time periods: for example, if a teacher is also responsible for teaching two courses on computer network technology and databases, he will prefer to schedule both courses in the morning or afternoon on the same day**（Table C example: Lessons numbered 15 and number 24 should be attended together: 3:24 3:15) **
+4. Some courses are scheduled to complete all class hours within a certain number of weeks: for example, the course mathematical modeling is scheduled to complete all class hours from the first week to the ninth week**（Table C: The first half of the semester is scheduled: 4:1, 9)**
+2. A course is scheduled to take place after the end of a particular course or at the same time: for example, operations research (ii) is scheduled to be conducted after the end of operations research (i), and econometrics and financial management are arranged to end in the same week
+3. Some courses are arranged in succession for a specific period of time, and up to four sessions are arranged: for example, the matlab logistics management experimental course requires four consecutive sessions to be taught
+7. The more difficult courses should be arranged as separately as possible: for example, calculus and C++ should not be arranged on the same day as possible, and the arrangements should be arranged separately to alleviate students' academic pressure
+2. Different courses have different maximum lessons in a week: e.g. operations research can be arranged up to four times a week **(Example C: two lessons a week: twice a week: 8:2)**
+3. Do not run multiple consecutive time periods or consecutive days: for example, try to arrange the operations research every other day, rather than arranging four class hours a week in adjacent time periods or two adjacent days.
+10. Several lessons a week are scheduled in the evening (three consecutive lessons)**(Example C: one evening lesson a week: 10:1)**
+2. Teachers want to attend classes at a certain time**(Example C: Wednesday night 9-12: 11:15)**
