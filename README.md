@@ -13,6 +13,7 @@ The scale of each instance is shown in the following table
 | Instance6  | 8-32-28-18 |
 | Instance7  | 8-30-30-18 |
 | Instance8  | 8-30-28-20 |
+| Instance9  | 8-30-28-18 |
 
 
 # Data description
