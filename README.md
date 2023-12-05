@@ -1,6 +1,6 @@
 
 
-We have a total of eight instances. The folders in each instance are the same four folders of T, C, K, and D, and the format of the instance size is "the number of classes - the number of courses- the number of teachers - the number of weeks".
+We have a total of **sixteen** instances. The folders in each instance are the same four folders of T, C, K, and D, and the format of the instance size is "the number of classes - the number of courses- the number of teachers - the number of weeks".
 The scale of each instance is shown in the following table
 
 | instance | scale |
@@ -14,7 +14,13 @@ The scale of each instance is shown in the following table
 | Instance7  | 8-30-30-18 |
 | Instance8  | 8-30-28-20 |
 | Instance9  | 8-30-28-18 |
-
+| Instance10 | 12-40-40-18 |
+| Instance11 | 14-40-45-18   |
+| Instance12 | 16-60-57-18   |
+| Instance13 | 20-80-65-18 |
+| Instance14 | 30-100-75-18 |
+| Instance15 | 40-130-90-18 |
+| Instance16 | 50-150-100-18 |
 
 # Data description
 
@@ -32,13 +38,13 @@ The data of each instance is divided into four folders: T, C, K, and D.
 
 ## Description of the contents of the table
 
-1. Table D：
+1. Table T：
 
    1. Table T0：Class Number Table. Classes and their corresponding numbers are recorded.
 
    2. T1-T10：Majors table for each class. That is, the class cannot schedule classes during that time period. where T2-5 is the same and T6-10 is the same, there are no duplicate files here. The first row in the table represents the number of weeks, the first column represents the time period, the position of the number in the middle represents the lesson, and the course of each number can be found below the table。
 2. Table C: Table C0: Course Information Form. The number of the course, the name, the corresponding class of the class, the number of the teacher, the number of class hours, and the number of soft constraints are recorded. The soft constraint numbers are shown in the appendix.
-3. Table K: Form K0: Teacher Information Form. The teachers and their corresponding numbers are recorded, and the time period when each teacher has an affair. where soft constraint 2 is merged with this table. The time portion, each column is a time period of the week, each behavior is a teacher's information, corresponding to the intersection of the weeks of things.
+3. Table K: Form K0:Teacher Information Form: This Form documents the identifiers associated with each faculty member. It also records the temporal intervals during which each faculty member is engaged in activities where soft constraint 2 is integrated with this matrix. In the temporal dimension, each column represents a distinct time slot within the week, and each row encapsulates the data pertaining to a specific faculty member, corresponding to the intersection of weekly activities
 4. Table D: The number of classrooms of each type is recorded
 
 ## Appendix: Table C Soft Constraint Correspondence
@@ -46,13 +52,23 @@ The data of each instance is divided into four folders: T, C, K, and D.
 The soft constraint order of table C is encoded as follows:
 
 1. Teachers try to avoid 1 and 2 a.m. and 7 or 8 p.m. class hours: Most teachers have special matters to deal with during this time 
+
 2. Teachers have other schedules at certain times of the week and cannot schedule classes: some teachers have meeting schedules, or need to travel, etc. **(merged into Form K)**
+
 3. Classes or classes taught by the same teacher are scheduled to take place in two adjacent time periods: for example, if a teacher is also responsible for teaching two courses on computer network technology and databases, he will prefer to schedule both courses in the morning or afternoon on the same day**（Table C example: Lessons numbered 15 and number 24 should be attended together: 3:24 3:15) **
+
 4. Some courses are scheduled to complete all class hours within a certain number of weeks: for example, the course mathematical modeling is scheduled to complete all class hours from the first week to the ninth week**（Table C: The first half of the semester is scheduled: 4:1, 9)**
-2. A course is scheduled to take place after the end of a particular course or at the same time: for example, operations research (ii) is scheduled to be conducted after the end of operations research (i), and econometrics and financial management are arranged to end in the same week
-3. Some courses are arranged in succession for a specific period of time, and up to four sessions are arranged: for example, the matlab logistics management experimental course requires four consecutive sessions to be taught
+
+5. A course is scheduled to take place after the end of a particular course or at the same time: for example, operations research (ii) is scheduled to be conducted after the end of operations research (i), and econometrics and financial management are arranged to end in the same week
+
+6. Some courses are arranged in succession for a specific period of time, and up to four sessions are arranged: for example, the matlab logistics management experimental course requires four consecutive sessions to be taught
+
 7. The more difficult courses should be arranged as separately as possible: for example, calculus and C++ should not be arranged on the same day as possible, and the arrangements should be arranged separately to alleviate students' academic pressure
-2. Different courses have different maximum lessons in a week: e.g. operations research can be arranged up to four times a week **(Example C: two lessons a week: twice a week: 8:2)**
-3. Do not run multiple consecutive time periods or consecutive days: for example, try to arrange the operations research every other day, rather than arranging four class hours a week in adjacent time periods or two adjacent days.
+
+8. Different courses have different maximum lessons in a week: e.g. operations research can be arranged up to four times a week **(Example C: two lessons a week: twice a week: 8:2)**
+
+9. Do not run multiple consecutive time periods or consecutive days: for example, try to arrange the operations research every other day, rather than arranging four class hours a week in adjacent time periods or two adjacent days.
+
 10. Several lessons a week are scheduled in the evening (three consecutive lessons)**(Example C: one evening lesson a week: 10:1)**
-2. Teachers want to attend classes at a certain time**(Example C: Wednesday night 9-12: 11:15)**
+
+11. Teachers want to attend classes at a certain time**(Example C: Wednesday night 9-12: 11:15)**
