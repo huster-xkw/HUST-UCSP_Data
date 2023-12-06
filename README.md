@@ -1,6 +1,6 @@
 
 
-We have a total of **sixteen** instances. The folders in each instance are the same four folders of T, C, K, and D, and the format of the instance size is "the number of classes - the number of courses- the number of teachers - the number of weeks".
+We have a total of **fifteen** instances. The folders in each instance are the same four folders of T, C, K, and D, and the format of the instance size is "the number of classes - the number of courses- the number of teachers - the number of weeks".
 The scale of each instance is shown in the following table
 
 | instance | scale |
@@ -12,15 +12,14 @@ The scale of each instance is shown in the following table
 | Instance5  | 10-30-28-18 |
 | Instance6  | 8-32-28-18 |
 | Instance7  | 8-30-30-18 |
-| Instance8  | 8-30-28-20 |
-| Instance9  | 8-30-28-18 |
-| Instance10 | 12-40-40-18 |
-| Instance11 | 14-40-45-18   |
-| Instance12 | 16-60-57-18   |
-| Instance13 | 20-80-65-18 |
-| Instance14 | 30-100-75-18 |
-| Instance15 | 40-130-90-18 |
-| Instance16 | 50-150-100-18 |
+| Instance8  | 8-30-28-18 |
+| Instance9 | 12-40-40-18 |
+| Instance10 | 14-40-45-18   |
+| Instance11 | 16-60-57-18   |
+| Instance12 | 20-80-65-18 |
+| Instance13 | 30-100-75-18 |
+| Instance14 | 40-130-90-18 |
+| Instance15 | 50-150-100-18 |
 
 # Data description
 
